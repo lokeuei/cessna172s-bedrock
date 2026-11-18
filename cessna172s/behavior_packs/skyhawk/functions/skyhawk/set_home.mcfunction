@@ -1,0 +1,1 @@
+scriptevent skyhawk:set_home

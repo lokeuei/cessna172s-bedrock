@@ -1,0 +1,35 @@
+{
+  "format_version": "1.14.0",
+  "sound_definitions": {
+    "skyhawk.engine": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/skyhawk/engine",
+          "stream": false,
+          "volume": 1
+        }
+      ]
+    },
+    "skyhawk.engine_start": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/skyhawk/engine_start",
+          "stream": false,
+          "volume": 1
+        }
+      ]
+    },
+    "skyhawk.wind": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/skyhawk/wind",
+          "stream": false,
+          "volume": 1
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.70",
+  "minecraft:item": {
+    "description": {
+      "identifier": "skyhawk:flight_toolkit",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": "skyhawk:flight_toolkit",
+      "minecraft:display_name": {
+        "value": "Flight Toolkit"
+      },
+      "minecraft:interact_button": "Open Flight Toolkit",
+      "minecraft:keep_on_death": {},
+      "minecraft:use_modifiers": {
+        "use_duration": 0.1,
+        "movement_modifier": 1
+      },
+      "minecraft:use_animation": "bow"
+    }
+  }
+}

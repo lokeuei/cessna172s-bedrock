@@ -1,0 +1,139 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "skyhawk:cessna172s",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "skyhawk:bank": {
+          "type": "int",
+          "range": [
+            -180,
+            180
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "skyhawk:pitch": {
+          "type": "int",
+          "range": [
+            -90,
+            90
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "skyhawk:yaw": {
+          "type": "int",
+          "range": [
+            -180,
+            180
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "skyhawk:power": {
+          "type": "int",
+          "range": [
+            0,
+            100
+          ],
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "aircraft"
+        ]
+      },
+      "minecraft:health": {
+        "value": 100,
+        "max": 100
+      },
+      "minecraft:collision_box": {
+        "width": 2.6,
+        "height": 4
+      },
+      "minecraft:physics": {
+        "has_gravity": true,
+        "has_collision": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:persistent": {},
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:rideable": {
+        "seat_count": 1,
+        "controlling_seat": 0,
+        "family_types": [
+          "player"
+        ],
+        "interact_text": "action.interact.skyhawk.board",
+        "rider_can_interact": false,
+        "seats": [
+          {
+            "position": [
+              0,
+              1.15,
+              0.35
+            ],
+            "third_person_camera_radius": 14,
+            "camera_relax_distance_smoothing": 4,
+            "rotate_rider_by": 0
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_dropped_ticks": 0,
+          "max_optimized_distance": 80,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:movement_sound_distance_offset": {
+        "value": 1000000000
+      }
+    },
+    "component_groups": {
+      "skyhawk:piloted": {
+        "minecraft:physics": {
+          "has_gravity": false,
+          "has_collision": true
+        }
+      }
+    },
+    "events": {
+      "skyhawk:board": {
+        "add": {
+          "component_groups": [
+            "skyhawk:piloted"
+          ]
+        }
+      },
+      "skyhawk:park": {
+        "remove": {
+          "component_groups": [
+            "skyhawk:piloted"
+          ]
+        }
+      }
+    }
+  }
+}

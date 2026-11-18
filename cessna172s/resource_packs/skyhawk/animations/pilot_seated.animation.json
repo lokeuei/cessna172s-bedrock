@@ -1,0 +1,73 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.skyhawk.pilot_seated_v284": {
+      "loop": true,
+      "animation_length": 1,
+      "override_previous_animation": true,
+      "bones": {
+        "root": {
+          "rotation": [
+            "-q.property('skyhawk:pilot_pitch')",
+            "q.property('skyhawk:pilot_yaw') - q.body_y_rotation",
+            "-q.property('skyhawk:pilot_bank')"
+          ],
+          "position": [
+            "12 * math.sin(q.property('skyhawk:pilot_bank')) * math.cos(q.property('skyhawk:pilot_pitch')) * math.cos((q.property('skyhawk:pilot_yaw') - q.body_y_rotation)) - 12 * math.sin(q.property('skyhawk:pilot_pitch')) * math.sin((q.property('skyhawk:pilot_yaw') - q.body_y_rotation))",
+            "12 * (1 - math.cos(q.property('skyhawk:pilot_bank')) * math.cos(q.property('skyhawk:pilot_pitch')))",
+            "-12 * math.sin(q.property('skyhawk:pilot_pitch')) * math.cos((q.property('skyhawk:pilot_yaw') - q.body_y_rotation)) - 12 * math.sin(q.property('skyhawk:pilot_bank')) * math.cos(q.property('skyhawk:pilot_pitch')) * math.sin((q.property('skyhawk:pilot_yaw') - q.body_y_rotation))"
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "waist": {
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "leftarm": {
+          "rotation": [
+            -55,
+            0,
+            0
+          ]
+        },
+        "rightarm": {
+          "rotation": [
+            -55,
+            0,
+            0
+          ]
+        },
+        "leftleg": {
+          "rotation": [
+            -81,
+            -12,
+            0
+          ]
+        },
+        "rightleg": {
+          "rotation": [
+            -81,
+            12,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

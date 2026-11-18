@@ -1,0 +1,11 @@
+{
+  "format_version": "1.21.40",
+  "minecraft:camera_preset": {
+    "identifier": "skyhawk:flight_orbit",
+    "inherit_from": "minecraft:follow_orbit",
+    "control_scheme": "camera_relative",
+    "radius": 14,
+    "player_effects": true,
+    "listener": "player"
+  }
+}

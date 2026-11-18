@@ -1,0 +1,15 @@
+{
+  "entity_sounds": {
+    "entities": {
+      "skyhawk:cessna172s": {
+        "volume": 1,
+        "pitch": 1,
+        "events": {
+          "step": "",
+          "jump": "",
+          "land": ""
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "cessna172s-bedrock",
+  "version": "2.8.5",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node check-flight.mjs && node check-toolkit.mjs && node check-airport-display.mjs",
+    "package": "pwsh -NoProfile -File scripts/package.ps1",
+    "assets:g5": "node generate-g5-assets.mjs",
+    "assets:audio": "node generate-plane-sounds.mjs"
+  },
+  "dependencies": {
+    "@minecraft/creator-tools": "^0.21.0",
+    "pngjs": "^7.0.0"
+  }
+}

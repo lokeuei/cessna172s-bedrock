@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "skyhawk:cessna172s",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/cessna172s"
+      },
+      "geometry": {
+        "default": "geometry.cessna172s_v284"
+      },
+      "render_controllers": [
+        "controller.render.skyhawk.cessna172s"
+      ],
+      "spawn_egg": {
+        "base_color": "#E9EDF0",
+        "overlay_color": "#1F5A96"
+      },
+      "animations": {
+        "flight": "animation.skyhawk.flight_v284"
+      },
+      "scripts": {
+        "animate": [
+          "flight"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,719 @@
+{
+  "namespace": "hud",
+  "skyhawk_snapshot_lifetime": {
+    "anim_type": "alpha",
+    "from": 1,
+    "to": 1,
+    "duration": 3,
+    "destroy_at_end": "hud_actionbar_text",
+    "end_event": "hud_actionbar_text_complete"
+  },
+  "root_panel": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "replace",
+        "control_name": "hud_actionbar_text_area",
+        "value": {
+          "hud_actionbar_text_area": {
+            "type": "panel",
+            "factory": {
+              "name": "hud_actionbar_text_factory",
+              "max_children_size": 1,
+              "control_ids": {
+                "hud_actionbar_text": "hud_actionbar_text@hud.hud_actionbar_text"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "hud_actionbar_text": {
+    "type": "image",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "alpha": "@hud.skyhawk_snapshot_lifetime",
+    "controls": [
+      {
+        "g5": {
+          "type": "panel",
+          "size": [
+            133.28,
+            148.96
+          ],
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [
+            8,
+            -8
+          ],
+          "property_bag": {
+            "#flight_data": "$actionbar_text"
+          },
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_property_name": "('%.5s' * #flight_data = 'G5T1|')",
+              "target_property_name": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "bezel": {
+                "type": "image",
+                "texture": "textures/ui/skyhawk/g5/bezel",
+                "size": [
+                  133.28,
+                  148.96
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 40
+              }
+            },
+            {
+              "horizon": {
+                "type": "panel",
+                "layer": 41,
+                "size": [
+                  117.6,
+                  105.84
+                ],
+                "offset": [
+                  7.84,
+                  21.56
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "clips_children": true,
+                "controls": [
+                  {
+                    "content": {
+                      "type": "image",
+                      "texture": "#texture",
+                      "size": [
+                        376.32,
+                        376.32
+                      ],
+                      "offset": [
+                        0,
+                        0
+                      ],
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "layer": 41,
+                      "property_bag": {
+                        "#flight_data": "$actionbar_text",
+                        "#anchored_offset_value_x": 0,
+                        "#anchored_offset_value_y": 0.5,
+                        "#texture": "textures/ui/skyhawk/g5/roll_18",
+                        "#factor_x": 0.00008503401360544217,
+                        "#factor_y": 0.0000944822373393802
+                      },
+                      "use_anchored_offset": true,
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(('%.14s' * #flight_data) - ('%.7s' * #flight_data))",
+                          "target_property_name": "#x_text"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(0 + #x_text)",
+                          "target_property_name": "#x_number"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(#factor_x * (#x_number - 500000))",
+                          "target_property_name": "#anchored_offset_value_x"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(('%.21s' * #flight_data) - ('%.14s' * #flight_data))",
+                          "target_property_name": "#y_text"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(0 + #y_text)",
+                          "target_property_name": "#y_number"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(#factor_y * (#y_number - 500000))",
+                          "target_property_name": "#anchored_offset_value_y"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(('%.7s' * #flight_data) - ('%.5s' * #flight_data))",
+                          "target_property_name": "#roll"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "('textures/ui/skyhawk/g5/roll_' + #roll)",
+                          "target_property_name": "#texture"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "reference": {
+                "type": "image",
+                "texture": "textures/ui/skyhawk/g5/reference",
+                "size": [
+                  117.6,
+                  105.84
+                ],
+                "offset": [
+                  7.84,
+                  21.56
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 90
+              }
+            },
+            {
+              "speed": {
+                "type": "panel",
+                "layer": 41,
+                "size": [
+                  20.58,
+                  105.84
+                ],
+                "offset": [
+                  7.84,
+                  21.56
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "clips_children": true,
+                "controls": [
+                  {
+                    "content": {
+                      "type": "image",
+                      "texture": "textures/ui/skyhawk/g5/speed_strip",
+                      "size": [
+                        20.58,
+                        458.64
+                      ],
+                      "offset": [
+                        0,
+                        0
+                      ],
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "layer": 41,
+                      "property_bag": {
+                        "#flight_data": "$actionbar_text",
+                        "#anchored_offset_value_x": 0,
+                        "#anchored_offset_value_y": 0.5,
+                        "#factor_x": 0.00008503401360544217,
+                        "#factor_y": 0.0000944822373393802
+                      },
+                      "use_anchored_offset": true,
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(('%.28s' * #flight_data) - ('%.21s' * #flight_data))",
+                          "target_property_name": "#y_text"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(0 + #y_text)",
+                          "target_property_name": "#y_number"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(#factor_y * (#y_number - 500000))",
+                          "target_property_name": "#anchored_offset_value_y"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "altitude": {
+                "type": "panel",
+                "layer": 41,
+                "size": [
+                  26.46,
+                  105.84
+                ],
+                "offset": [
+                  98.98,
+                  21.56
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "clips_children": true,
+                "controls": [
+                  {
+                    "content": {
+                      "type": "image",
+                      "texture": "textures/ui/skyhawk/g5/altitude_strip",
+                      "size": [
+                        26.46,
+                        1958.04
+                      ],
+                      "offset": [
+                        0,
+                        0
+                      ],
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "layer": 41,
+                      "property_bag": {
+                        "#flight_data": "$actionbar_text",
+                        "#anchored_offset_value_x": 0,
+                        "#anchored_offset_value_y": 0.5,
+                        "#factor_x": 0.00008503401360544217,
+                        "#factor_y": 0.0000944822373393802
+                      },
+                      "use_anchored_offset": true,
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(('%.35s' * #flight_data) - ('%.28s' * #flight_data))",
+                          "target_property_name": "#y_text"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(0 + #y_text)",
+                          "target_property_name": "#y_number"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(#factor_y * (#y_number - 500000))",
+                          "target_property_name": "#anchored_offset_value_y"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "speed_box": {
+                "type": "image",
+                "texture": "textures/ui/skyhawk/g5/readout",
+                "size": [
+                  20.58,
+                  11.27
+                ],
+                "offset": [
+                  7.84,
+                  69.09
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 91
+              }
+            },
+            {
+              "altitude_box": {
+                "type": "image",
+                "texture": "textures/ui/skyhawk/g5/readout",
+                "size": [
+                  26.46,
+                  11.27
+                ],
+                "offset": [
+                  98.98,
+                  69.09
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 91
+              }
+            },
+            {
+              "footer": {
+                "type": "image",
+                "texture": "textures/ui/skyhawk/g5/footer",
+                "size": [
+                  117.6,
+                  18.62
+                ],
+                "offset": [
+                  7.84,
+                  118.58
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 91
+              }
+            },
+            {
+              "IAS": {
+                "type": "label",
+                "text": "#text",
+                "localize": false,
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "size": [
+                  20.58,
+                  20
+                ],
+                "font_scale_factor": 0.4,
+                "offset": [
+                  7.84,
+                  72.52
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 200,
+                "property_bag": {
+                  "#flight_data": "$actionbar_text",
+                  "#value": 0
+                },
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "(('%.39s' * #flight_data) - ('%.35s' * #flight_data))",
+                    "target_property_name": "#field"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "('IAS ' + #field)",
+                    "target_property_name": "#text"
+                  }
+                ]
+              }
+            },
+            {
+              "ALT": {
+                "type": "label",
+                "text": "#text",
+                "localize": false,
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "size": [
+                  26.46,
+                  20
+                ],
+                "font_scale_factor": 0.4,
+                "offset": [
+                  98.98,
+                  72.52
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 200,
+                "property_bag": {
+                  "#flight_data": "$actionbar_text",
+                  "#value": 0
+                },
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "(('%.45s' * #flight_data) - ('%.39s' * #flight_data))",
+                    "target_property_name": "#field"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "('ALT ' + #field)",
+                    "target_property_name": "#text"
+                  }
+                ]
+              }
+            },
+            {
+              "HDG": {
+                "type": "label",
+                "text": "#text",
+                "localize": false,
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "size": [
+                  101.92,
+                  12
+                ],
+                "font_scale_factor": 0.5,
+                "offset": [
+                  15.68,
+                  12.74
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 200,
+                "property_bag": {
+                  "#flight_data": "$actionbar_text",
+                  "#value": 0
+                },
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "(('%.53s' * #flight_data) - ('%.45s' * #flight_data))",
+                    "target_property_name": "#field"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "('HDG ' + #field + '')",
+                    "target_property_name": "#text"
+                  }
+                ]
+              }
+            },
+            {
+              "GS": {
+                "type": "label",
+                "text": "#text",
+                "localize": false,
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "size": [
+                  51.94,
+                  12
+                ],
+                "font_scale_factor": 0.5,
+                "offset": [
+                  9.8,
+                  120.53999999999999
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 200,
+                "property_bag": {
+                  "#flight_data": "$actionbar_text",
+                  "#value": 0
+                },
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "(('%.57s' * #flight_data) - ('%.53s' * #flight_data))",
+                    "target_property_name": "#field"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "('GS ' + #field + ' KT')",
+                    "target_property_name": "#text"
+                  }
+                ]
+              }
+            },
+            {
+              "VS": {
+                "type": "label",
+                "text": "#text",
+                "localize": false,
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "size": [
+                  58.8,
+                  12
+                ],
+                "font_scale_factor": 0.5,
+                "offset": [
+                  66.64,
+                  120.53999999999999
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 200,
+                "property_bag": {
+                  "#flight_data": "$actionbar_text",
+                  "#value": 0
+                },
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "(('%.64s' * #flight_data) - ('%.57s' * #flight_data))",
+                    "target_property_name": "#field"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "('VS ' + #field + ' FPM')",
+                    "target_property_name": "#text"
+                  }
+                ]
+              }
+            },
+            {
+              "PWR": {
+                "type": "label",
+                "text": "#text",
+                "localize": false,
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "size": [
+                  44.1,
+                  12
+                ],
+                "font_scale_factor": 0.5,
+                "offset": [
+                  81.34,
+                  130.34
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 200,
+                "property_bag": {
+                  "#flight_data": "$actionbar_text",
+                  "#value": 0
+                },
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "(('%.68s' * #flight_data) - ('%.64s' * #flight_data))",
+                    "target_property_name": "#field"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "('PWR ' + #field + '%')",
+                    "target_property_name": "#text"
+                  }
+                ]
+              }
+            },
+            {
+              "TRK": {
+                "type": "label",
+                "text": "#text",
+                "localize": false,
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "size": [
+                  67.62,
+                  12
+                ],
+                "font_scale_factor": 0.5,
+                "offset": [
+                  9.8,
+                  130.34
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 200,
+                "property_bag": {
+                  "#flight_data": "$actionbar_text",
+                  "#value": 0
+                },
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "(('%.72s' * #flight_data) - ('%.68s' * #flight_data))",
+                    "target_property_name": "#field"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "('TRK ' + #field + '')",
+                    "target_property_name": "#text"
+                  }
+                ]
+              }
+            },
+            {
+              "CARD": {
+                "type": "label",
+                "text": "#text",
+                "localize": false,
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "size": [
+                  55,
+                  12
+                ],
+                "font_scale_factor": 0.5,
+                "offset": [
+                  65,
+                  12.74
+                ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 200,
+                "property_bag": {
+                  "#flight_data": "$actionbar_text",
+                  "#value": 0
+                },
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "(('%.51s' * #flight_data) - ('%.49s' * #flight_data))",
+                    "target_property_name": "#field"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "('DIR ' + #field)",
+                    "target_property_name": "#text"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "regular": {
+          "type": "label",
+          "text": "$actionbar_text",
+          "localize": false,
+          "property_bag": {
+            "#flight_data": "$actionbar_text"
+          },
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ('%.5s' * #flight_data = 'G5T1|'))",
+              "target_property_name": "#visible"
+            }
+          ],
+          "offset": [
+            0,
+            "50%-68px"
+          ]
+        }
+      }
+    ],
+    "texture": "textures/ui/skyhawk/g5/reference",
+    "uv": [
+      0,
+      0
+    ],
+    "uv_size": [
+      1,
+      1
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left"
+  }
+}
